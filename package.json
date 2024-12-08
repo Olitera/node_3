@@ -1,0 +1,14 @@
+{
+  "name": "node_3_volha_melayok",
+  "version": "1.0.0",
+  "description": "Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olitera",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
