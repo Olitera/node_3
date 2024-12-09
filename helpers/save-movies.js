@@ -4,6 +4,7 @@ const getMoviesFromApi = require('./prefetch-data');
 const saveMoviesToJson = async (movies) => {
   try {
     const jsonData = JSON.stringify(movies, null, 2);
+
     await fs.writeFile('top250.json', jsonData);
     console.log('Films saved to films.json');
   } catch (error) {
@@ -27,8 +28,10 @@ const transformMovieData = (movie, position) => {
 const fetchAndSaveMovies = async () => {
   try {
     const movies = await getMoviesFromApi();
+
     if (movies?.docs) {
       const transformedMovies = movies.docs.map((movie, index) => transformMovieData(movie, index + 1));
+
       await saveMoviesToJson(transformedMovies);
     }
   } catch (error) {

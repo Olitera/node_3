@@ -4,6 +4,9 @@ const app = express();
 const greetingsRouter = require('./routes/greetings');
 const filmsRouter = require('./routes/films');
 const getMovies = require('./helpers/get-movies');
+const { State } = require('./helpers/state');
+
+app.use(express.json());
 
 app.use('/greetings', greetingsRouter);
 app.use('/films', filmsRouter);
@@ -12,13 +15,8 @@ app.use((err, req, res) => {
   console.log(err);
 });
 
-const State = {
-  movies: [],
-}
-
 async function startApp() {
   State.movies = await getMovies();
-  console.log(State.movies, 'state')
   app.listen(3000, () => {
     console.log('Example app listening on port 3000!');
   })

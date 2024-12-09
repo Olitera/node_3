@@ -14,6 +14,7 @@ const params = {
 
 const getMoviesFromApi = () => {
   const selectedFieldsRequest = params.selectFields.map((field) => `&selectFields=${ field }`).join('');
+
   return new Promise((resolve, reject) => {
     const options = {
       'method': 'GET',

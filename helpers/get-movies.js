@@ -7,6 +7,7 @@ async function getMovies() {
   } catch (error) {
     await fetchAndSaveMovies();
   }
+
   return JSON.parse(await fs.readFile('top250.json', 'utf8'));
 }
 
